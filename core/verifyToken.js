@@ -5,7 +5,7 @@ module.exports = function (req, res, next) {
     if (authHeader && authHeader.startsWith('Bearer ')) {
         // Extract the token part from the header
         const token = authHeader.split(' ')[1];
-        console.log('Received Bearer token:', token);
+        // console.log('Received Bearer token:', token);
         if (token) {
             try {
                 const verified = jwt.verify(token, process.env.TOKEN_SECRET);

@@ -2,53 +2,56 @@ let express = require('express');
 let router = express.Router();
 const verify = require('../core/verifyToken');
 
-
 // let data = require('./controller/model.ctrl');
 
 
-
 // Controllers 
-let course = require('./controller/course.ctrl');
-let subject = require('./controller/subject.ctrl');
-let auth_staff = require('./controller/auth_staff.ctrl')
-let auth_student = require('./controller/auth_student.ctrl')
-
-
-let model = require('./controller/model.ctrl')
+let user = require('./controller/user.ctrl.js');
+let blog = require('./controller/blog.ctrl.js');
+let contact = require('./controller/contact.ctrl.js');
+let feedback = require('./controller/feedback.ctrl.js')
+// let course = require('./controller/course.ctrl');
+// let subject = require('./controller/subject.ctrl');
+// let auth_staff = require('./controller/auth_staff.ctrl')
+// let auth_student = require('./controller/auth_student.ctrl')
+// let model = require('./controller/model.ctrl')
 // router.post('/login', data.insert);
 
 
 
-
-
-// COURSES 
-router.post('/saveCourse', verify, course.save)
-router.post('/deleteCourse', verify, course.delete)
-router.post('/getCourse', verify, course.get)
-
-// SUBJECT
-router.post('/saveSubject', verify, subject.save)
-router.post('/deleteSubject', verify, subject.delete)
-router.post('/getSubject', verify, subject.get)
-
-
-// STAFF
-
-router.post('/staffRegistration', auth_staff.registration)
-router.post('/staffLogin', auth_staff.login)
+// Users
+router.post('/login', user.login);
+router.post('/register', user.registration);
+router.post('/getListUser', verify, user.getListUsers);
 
 
 
-// STUDENT
+//Blogs
 
-router.post('/studentLogin', auth_student.login)
-router.post('/studentRegistration', auth_student.registration)
+router.post('/saveBlog', verify, blog.save);
+router.post('/deleteBlog', verify, blog.delete);
+router.post('/getListBlogs', blog.getListBlogs);
+
+
+
+//
+
+router.post('/saveContact', contact.save);
+router.post('/deleteContact', verify, contact.delete);
+router.post('/getListContacts', verify, contact.getListContacts);
+
+
+//
+
+router.post('/saveFeedback', verify, feedback.save)
+router.post('/deleteFeedback', verify, feedback.delete)
+router.post('/getListFeedback', verify, feedback.getListFeedbacks)
 
 
 
 //demo
 
-router.post('/get', model.get);
+// router.post('/get', model.get);
 
 
 

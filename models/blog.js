@@ -2,21 +2,22 @@ const mongoose = require('mongoose');
 const mongoosePaginate = require('mongoose-paginate-v2');
 
 const schema = new mongoose.Schema({
-    name: {
+    title: {
         required: true,
         type: String
     },
-    email: {
+    date: {
+        required: true,
+        type: Date
+    },
+    content: {
         required: true,
         type: String
     },
-    password: {
-        required: true,
-        type: String
-    },
-
-
+    isShow: {
+        type: Boolean
+    }
 }, { timestamps: true, strict: false })
 
 schema.plugin(mongoosePaginate);
-module.exports = mongoose.model('User', schema)
+module.exports = mongoose.model('Blog', schema)
