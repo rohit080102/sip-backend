@@ -9,13 +9,7 @@ const verify = require('../core/verifyToken');
 let user = require('./controller/user.ctrl.js');
 let blog = require('./controller/blog.ctrl.js');
 let contact = require('./controller/contact.ctrl.js');
-let feedback = require('./controller/feedback.ctrl.js')
-// let course = require('./controller/course.ctrl');
-// let subject = require('./controller/subject.ctrl');
-// let auth_staff = require('./controller/auth_staff.ctrl')
-// let auth_student = require('./controller/auth_student.ctrl')
-// let model = require('./controller/model.ctrl')
-// router.post('/login', data.insert);
+let feedback = require('./controller/feedback.ctrl.js');
 
 
 
